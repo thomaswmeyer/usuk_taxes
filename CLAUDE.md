@@ -34,8 +34,11 @@ core library (`src/usuk_taxes/`) free of machine-specific assumptions.
 - UK 2025-26 gotcha: the remittance basis was abolished from 6 Apr 2025 —
   the FIG regime / OWR rules (HS266, SA109 notes, EIM43501+) are in the
   corpus; RDR1 is retained for background but partly superseded.
-- `src/usuk_taxes/calc.py` generates `spreadsheets/taxes_2025.xlsx`
-  (`usuk workbook`). Grey cells are year constants to verify against the
-  corpus; blue cells are user inputs. When editing calc.py, formulas are
-  built by row counting — re-run the cross-reference check (see git history)
-  after layout changes.
+- `src/usuk_taxes/calc.py` generates the tax workbook (`usuk workbook`).
+  Grey cells are year constants to verify against the corpus; blue cells are
+  user inputs. When editing calc.py, formulas are built by row counting —
+  re-run the cross-reference check (see git history) after layout changes.
+- Spreadsheet privacy: `spreadsheets/template_*.xlsx` (blank, from
+  `usuk workbook --template`) is tracked; personal working copies with real
+  figures (`taxes_2025.xlsx` etc.) are gitignored. Never commit files
+  containing actual financial data.

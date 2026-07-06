@@ -15,5 +15,10 @@ __pycache__/
 # Excel lock files
 ~$*.xlsx
 
+# Personal workbooks with real figures stay out of git; the blank template
+# (spreadsheets/template_*.xlsx) is tracked.
+spreadsheets/*.xlsx
+!spreadsheets/template_*.xlsx
+
 # Claude Code local settings
 .claude/settings.local.json*

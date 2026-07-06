@@ -78,7 +78,8 @@ def cmd_workbook(args) -> int:
     from .calc import build_workbook
     from .config import ROOT
 
-    path = Path(args.path) if args.path else ROOT / "spreadsheets" / "taxes_2025.xlsx"
+    default_name = "template_2025.xlsx" if args.template else "taxes_2025.xlsx"
+    path = Path(args.path) if args.path else ROOT / "spreadsheets" / default_name
     if path.exists() and not args.force:
         print(f"{path} already exists — pass --force to overwrite.", file=sys.stderr)
         return 1
@@ -113,6 +114,11 @@ def main() -> None:
     p = sub.add_parser("workbook", help="generate the tax-year calculation workbook (Excel)")
     p.add_argument("path", nargs="?", help="output path (default: spreadsheets/taxes_2025.xlsx)")
     p.add_argument("--force", action="store_true", help="overwrite an existing workbook")
+    p.add_argument(
+        "--template",
+        action="store_true",
+        help="write the git-tracked blank template (template_2025.xlsx) instead of a personal working copy",
+    )
     p.set_defaults(func=cmd_workbook)
 
     p = sub.add_parser("ask", help="ask a tax question")
