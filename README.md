@@ -23,6 +23,7 @@ uv run usuk fetch          # download the corpus (cached in corpus/raw/)
 uv run usuk index          # extract, chunk, embed (local model), build index
 uv run usuk ask "How are stock options from my US employer's parent company taxed while I work in the UK?"
 uv run usuk sources        # list sources and cache status
+uv run usuk workbook       # generate spreadsheets/taxes_2025.xlsx (calc scaffold)
 ```
 
 Edit `profile.yaml` to describe the filing situation — it is injected into the

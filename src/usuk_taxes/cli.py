@@ -72,6 +72,22 @@ def cmd_index(args) -> int:
     return 0
 
 
+def cmd_workbook(args) -> int:
+    from pathlib import Path
+
+    from .calc import build_workbook
+    from .config import ROOT
+
+    path = Path(args.path) if args.path else ROOT / "spreadsheets" / "taxes_2025.xlsx"
+    if path.exists() and not args.force:
+        print(f"{path} already exists — pass --force to overwrite.", file=sys.stderr)
+        return 1
+    path.parent.mkdir(parents=True, exist_ok=True)
+    build_workbook(path)
+    print(f"Wrote {path}")
+    return 0
+
+
 def cmd_ask(args) -> int:
     from .advisor import ask
 
@@ -93,6 +109,11 @@ def main() -> None:
     p = sub.add_parser("index", help="extract, chunk, and index the corpus")
     p.add_argument("--force", action="store_true", help="re-extract text from raw files")
     p.set_defaults(func=cmd_index)
+
+    p = sub.add_parser("workbook", help="generate the tax-year calculation workbook (Excel)")
+    p.add_argument("path", nargs="?", help="output path (default: spreadsheets/taxes_2025.xlsx)")
+    p.add_argument("--force", action="store_true", help="overwrite an existing workbook")
+    p.set_defaults(func=cmd_workbook)
 
     p = sub.add_parser("ask", help="ask a tax question")
     p.add_argument("question")

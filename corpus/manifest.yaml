@@ -132,6 +132,43 @@ sources:
     url: https://www.gov.uk/government/publications/residence-domicile-and-remittance-basis-rules-uk-tax-liability/guidance-note-for-residence-domicile-and-the-remittance-basis-rdr1
     type: html
 
+  - id: hmrc-tax-foreign-income-paying-tax
+    jurisdiction: uk
+    title: "HMRC — Tax on foreign income: paying tax on foreign income"
+    url: https://www.gov.uk/tax-foreign-income/paying-tax
+    type: html
+
+  - id: hmrc-tax-foreign-income-taxed-twice
+    jurisdiction: uk
+    title: "HMRC — Tax on foreign income: if you're taxed twice"
+    url: https://www.gov.uk/tax-foreign-income/taxed-twice
+    type: html
+
+  - id: hmrc-tax-foreign-income-residence
+    jurisdiction: uk
+    title: "HMRC — Tax on foreign income: UK residence and tax"
+    url: https://www.gov.uk/tax-foreign-income/residence
+    type: html
+
+  # ── UK: FIG regime (replaced the remittance basis from 6 April 2025) ────
+  - id: hmrc-fig-regime-eligibility
+    jurisdiction: uk
+    title: "HMRC — Check if you can claim the 4-year foreign income and gains (FIG) regime"
+    url: https://www.gov.uk/guidance/check-if-you-can-claim-the-4-year-foreign-income-and-gains-regime
+    type: html
+
+  - id: hmrc-hs266-fig
+    jurisdiction: uk
+    title: "HS266 — Foreign income and gains (FIG) regime (2025-26)"
+    url: https://www.gov.uk/government/publications/foreign-income-and-gains-fig-regime-self-assessment-helpsheet-hs266/hs266-foreign-income-and-gains-fig-regime-2026
+    type: html
+
+  - id: hmrc-sa109-notes-2026
+    jurisdiction: uk
+    title: "SA109 Notes (2025-26) — Residence and FIG regime pages"
+    url: https://assets.publishing.service.gov.uk/media/69c2ab7d55cc7fccb3e0dbe3/SA109-Notes-2026.pdf
+    type: pdf
+
   # ── UK: employment income & employment-related securities (options) ─────
   - id: hmrc-income-tax-rates
     jurisdiction: uk
@@ -151,6 +188,43 @@ sources:
     url: https://www.gov.uk/government/publications/employee-shares-and-securities-further-guidance-hs305-self-assessment-helpsheet/hs305-employment-related-shares-and-securities-further-guidance-2026
     type: html
 
+  - id: hmrc-eim43501
+    jurisdiction: uk
+    title: "EIM43501 — Globally mobile employees: overview (from 2025-26)"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-income-manual/eim43501
+    type: html
+
+  - id: hmrc-eim43575
+    jurisdiction: uk
+    title: "EIM43575 — Globally mobile employees: OWR: qualifying foreign securities income"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-income-manual/eim43575
+    type: html
+
+  - id: hmrc-ersm110050
+    jurisdiction: uk
+    title: "ERSM110050 — Securities options: overview of liability"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-related-securities/ersm110050
+    type: html
+
+  - id: hmrc-ersm160100
+    jurisdiction: uk
+    title: "ERSM160100 — Internationally mobile employees: introduction"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-related-securities/ersm160100
+    type: html
+
+  - id: hmrc-ersm162000
+    jurisdiction: uk
+    title: "ERSM162000 — IME: securities and options, residence from 6 April 2015"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-related-securities/ersm162000
+    type: html
+
+  # ── UK: capital gains on shares (post-exercise sales) ───────────────────
+  - id: hmrc-tax-sell-shares
+    jurisdiction: uk
+    title: "HMRC — Tax when you sell shares"
+    url: https://www.gov.uk/tax-sell-shares
+    type: html
+
   # ── UK: rental income ────────────────────────────────────────────────────
   - id: hmrc-renting-out-property
     jurisdiction: uk
@@ -163,6 +237,24 @@ sources:
     title: "HMRC Property Income Manual — PIM1030 introduction (jointly owned property)"
     url: https://www.gov.uk/hmrc-internal-manuals/property-income-manual/pim1030
     type: html
+
+  - id: hmrc-rental-income-working-out
+    jurisdiction: uk
+    title: "HMRC — Work out your rental income when you let property"
+    url: https://www.gov.uk/guidance/income-tax-when-you-rent-out-a-property-working-out-your-rental-income
+    type: html
+
+  - id: hmrc-sa105-notes-2026
+    jurisdiction: uk
+    title: "SA105 Notes (2025-26) — UK property pages"
+    url: https://assets.publishing.service.gov.uk/media/69cbb66fa60a12ca3913c62a/UK_property_notes.pdf
+    type: pdf
+
+  - id: hmrc-sa106-notes-2026
+    jurisdiction: uk
+    title: "SA106 Notes (2025-26) — Foreign pages (incl. Foreign Tax Credit Relief)"
+    url: https://assets.publishing.service.gov.uk/media/69bbd6144c478213a823ce14/SA106_Notes_2026.pdf
+    type: pdf
 
   # ── UK: Self Assessment ──────────────────────────────────────────────────
   - id: hmrc-self-assessment
