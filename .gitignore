@@ -1,0 +1,19 @@
+# Downloaded corpus and derived data — reproducible via `usuk fetch` / `usuk index`
+corpus/raw/
+corpus/text/
+data/
+
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# Excel lock files
+~$*.xlsx
+
+# Claude Code local settings
+.claude/settings.local.json*

@@ -1,0 +1,26 @@
+# Example household tax profile. Copy to $USUK_PRIVATE_DIR/profile.yaml and
+# fill in real facts; that copy (never this file) is injected into the
+# advisor's system prompt. Keep real personal details out of the repo.
+
+filer:
+  status: US citizen, tax resident in the UK
+  filing_years:
+    us: "2025 (calendar year, filed in 2026)"
+    uk: "2025-26 (6 April 2025 to 5 April 2026)"
+  us_filing_status: married filing jointly
+  us_state: none (state with no income tax)
+
+income:
+  - kind: employment
+    detail: UK employment paid via PAYE.
+  - kind: equity_compensation
+    detail: RSUs / options from a US parent company, vesting while working in the UK.
+  - kind: uk_rental
+    detail: Rental income from a UK property.
+
+dependents:
+  - age: 10
+    note: Qualifying child for the US Child Tax Credit.
+
+open_questions:
+  - Facts still to confirm before relying on answers.

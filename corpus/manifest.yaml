@@ -1,0 +1,172 @@
+# Corpus manifest — authoritative sources for the US/UK expat tax advisor.
+#
+# Scope: current filing year only —
+#   US tax year 2025 (filed in 2026), UK tax year 2025-26 (SA due 31 Jan 2027).
+# Selection is tailored to the household profile in profile.yaml:
+#   UK employment income, US-parent stock options, UK rental income,
+#   married with three dependent children.
+#
+# type: pdf | html
+# jurisdiction: us | uk | treaty
+
+sources:
+  # ── Treaty layer (the crux for expat questions) ──────────────────────────
+  - id: us-uk-treaty
+    jurisdiction: treaty
+    title: "US-UK Income Tax Convention (2001, as amended)"
+    url: https://home.treasury.gov/system/files/131/Treaty-UK-7-24-2001.pdf
+    type: pdf
+
+  - id: us-uk-treaty-technical-explanation
+    jurisdiction: treaty
+    title: "Treasury Technical Explanation of the US-UK Income Tax Convention"
+    url: https://home.treasury.gov/system/files/131/Treaty-UK-Protocol-TE-7-22-2002.pdf
+    type: pdf
+
+  # ── US: core expat guidance ──────────────────────────────────────────────
+  - id: irs-pub-54
+    jurisdiction: us
+    title: "IRS Publication 54 — Tax Guide for US Citizens Abroad"
+    url: https://www.irs.gov/pub/irs-pdf/p54.pdf
+    type: pdf
+
+  - id: irs-pub-514
+    jurisdiction: us
+    title: "IRS Publication 514 — Foreign Tax Credit for Individuals"
+    url: https://www.irs.gov/pub/irs-pdf/p514.pdf
+    type: pdf
+
+  - id: irs-i1116
+    jurisdiction: us
+    title: "Instructions for Form 1116 — Foreign Tax Credit"
+    url: https://www.irs.gov/pub/irs-pdf/i1116.pdf
+    type: pdf
+
+  - id: irs-i2555
+    jurisdiction: us
+    title: "Instructions for Form 2555 — Foreign Earned Income Exclusion"
+    url: https://www.irs.gov/pub/irs-pdf/i2555.pdf
+    type: pdf
+
+  - id: irs-i1040
+    jurisdiction: us
+    title: "Instructions for Form 1040"
+    url: https://www.irs.gov/pub/irs-pdf/i1040gi.pdf
+    type: pdf
+
+  # ── US: stock options (US-parent equity comp) ───────────────────────────
+  - id: irs-pub-525
+    jurisdiction: us
+    title: "IRS Publication 525 — Taxable and Nontaxable Income (incl. stock options)"
+    url: https://www.irs.gov/pub/irs-pdf/p525.pdf
+    type: pdf
+
+  - id: irs-i6251
+    jurisdiction: us
+    title: "Instructions for Form 6251 — Alternative Minimum Tax (ISO exercises)"
+    url: https://www.irs.gov/pub/irs-pdf/i6251.pdf
+    type: pdf
+
+  # ── US: rental income ────────────────────────────────────────────────────
+  - id: irs-pub-527
+    jurisdiction: us
+    title: "IRS Publication 527 — Residential Rental Property"
+    url: https://www.irs.gov/pub/irs-pdf/p527.pdf
+    type: pdf
+
+  - id: irs-i1040se
+    jurisdiction: us
+    title: "Instructions for Schedule E — Supplemental Income (rental)"
+    url: https://www.irs.gov/pub/irs-pdf/i1040se.pdf
+    type: pdf
+
+  # ── US: dependents / child tax credit ───────────────────────────────────
+  - id: irs-i1040s8812
+    jurisdiction: us
+    title: "Instructions for Schedule 8812 — Child Tax Credit / Credit for Other Dependents"
+    url: https://www.irs.gov/pub/irs-pdf/i1040s8.pdf
+    type: pdf
+
+  - id: irs-pub-501
+    jurisdiction: us
+    title: "IRS Publication 501 — Dependents, Standard Deduction, Filing Information"
+    url: https://www.irs.gov/pub/irs-pdf/p501.pdf
+    type: pdf
+
+  # ── US: foreign account reporting ────────────────────────────────────────
+  - id: irs-i8938
+    jurisdiction: us
+    title: "Instructions for Form 8938 — Statement of Specified Foreign Financial Assets"
+    url: https://www.irs.gov/pub/irs-pdf/i8938.pdf
+    type: pdf
+
+  - id: fincen-fbar-instructions
+    jurisdiction: us
+    title: "FinCEN Form 114 (FBAR) — Line Item Filing Instructions"
+    url: https://www.fincen.gov/sites/default/files/shared/FBAR%20Line%20Item%20Filing%20Instructions.pdf
+    type: pdf
+
+  # ── US: treaty positions ─────────────────────────────────────────────────
+  - id: irs-f8833
+    jurisdiction: us
+    title: "Form 8833 — Treaty-Based Return Position Disclosure (with instructions)"
+    url: https://www.irs.gov/pub/irs-pdf/f8833.pdf
+    type: pdf
+
+  # ── UK: residence, foreign income, credit relief ─────────────────────────
+  - id: hmrc-tax-foreign-income
+    jurisdiction: uk
+    title: "HMRC — Tax on foreign income"
+    url: https://www.gov.uk/tax-foreign-income
+    type: html
+
+  - id: hmrc-hs263
+    jurisdiction: uk
+    title: "HS263 — Relief for foreign tax paid (Foreign Tax Credit Relief)"
+    url: https://www.gov.uk/government/publications/calculating-foreign-tax-credit-relief-on-income-hs263-self-assessment-helpsheet
+    type: html
+
+  - id: hmrc-rdr1
+    jurisdiction: uk
+    title: "RDR1 — Residence, domicile and the remittance basis"
+    url: https://www.gov.uk/government/publications/residence-domicile-and-remittance-basis-rules-uk-tax-liability/guidance-note-for-residence-domicile-and-the-remittance-basis-rdr1
+    type: html
+
+  # ── UK: employment income & employment-related securities (options) ─────
+  - id: hmrc-income-tax-rates
+    jurisdiction: uk
+    title: "HMRC — Income Tax rates and Personal Allowances"
+    url: https://www.gov.uk/income-tax-rates
+    type: html
+
+  - id: hmrc-tax-employee-share-schemes
+    jurisdiction: uk
+    title: "HMRC — Tax and Employee Share Schemes"
+    url: https://www.gov.uk/tax-employee-share-schemes
+    type: html
+
+  - id: hmrc-hs305
+    jurisdiction: uk
+    title: "HS305 — Employment-related shares and securities (2025-26)"
+    url: https://www.gov.uk/government/publications/employee-shares-and-securities-further-guidance-hs305-self-assessment-helpsheet/hs305-employment-related-shares-and-securities-further-guidance-2026
+    type: html
+
+  # ── UK: rental income ────────────────────────────────────────────────────
+  - id: hmrc-renting-out-property
+    jurisdiction: uk
+    title: "HMRC — Renting out your property: paying tax"
+    url: https://www.gov.uk/renting-out-a-property/paying-tax
+    type: html
+
+  - id: hmrc-property-income-manual-intro
+    jurisdiction: uk
+    title: "HMRC Property Income Manual — PIM1030 introduction (jointly owned property)"
+    url: https://www.gov.uk/hmrc-internal-manuals/property-income-manual/pim1030
+    type: html
+
+  # ── UK: Self Assessment ──────────────────────────────────────────────────
+  - id: hmrc-self-assessment
+    jurisdiction: uk
+    title: "HMRC — Self Assessment tax returns"
+    url: https://www.gov.uk/self-assessment-tax-returns
+    type: html
