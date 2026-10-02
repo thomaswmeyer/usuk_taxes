@@ -15,8 +15,12 @@ core library (`src/usuk_taxes/`) free of machine-specific assumptions.
   retrieval = Chroma (local ONNX embeddings, no API key) + BM25, fused with RRF.
 - `src/usuk_taxes/advisor.py` — Claude call. Retrieved chunks are sent as
   document blocks with the API citations feature enabled; answers must cite.
-- `profile.yaml` — the household tax situation, injected into the system
-  prompt. Update it when facts change; it also lists open fact questions.
+- `$USUK_PRIVATE_DIR/profile.yaml` — the household tax situation, injected
+  into the system prompt. Update it when facts change; it also lists open
+  fact questions. The tracked `profile.example.yaml` is a generic fallback.
+- Personal files live outside the repo in `USUK_PRIVATE_DIR` (set in `.env`):
+  the real profile, working workbooks, and a document inventory. Source
+  documents (returns, payslips, statements) are never copied into the repo.
 
 ## Commands
 
@@ -40,5 +44,5 @@ core library (`src/usuk_taxes/`) free of machine-specific assumptions.
   re-run the cross-reference check (see git history) after layout changes.
 - Spreadsheet privacy: `spreadsheets/template_*.xlsx` (blank, from
   `usuk workbook --template`) is tracked; personal working copies with real
-  figures (`taxes_2025.xlsx` etc.) are gitignored. Never commit files
+  figures (`taxes_2025.xlsx` etc.) go to `USUK_PRIVATE_DIR`. Never commit files
   containing actual financial data.

@@ -39,7 +39,7 @@ Rules:
 def _profile_text() -> str:
     if PROFILE_PATH.exists():
         return yaml.safe_dump(yaml.safe_load(PROFILE_PATH.read_text()), sort_keys=False)
-    return "(no profile.yaml found)"
+    return "(no profile found)"
 
 
 def ask(question: str, k: int = FINAL_K, show_passages: bool = False) -> None:

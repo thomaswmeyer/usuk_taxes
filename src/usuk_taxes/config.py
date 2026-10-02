@@ -39,7 +39,20 @@ TEXT_DIR = ROOT / "corpus" / "text"
 DATA_DIR = ROOT / "data"
 CHUNKS_PATH = DATA_DIR / "chunks.jsonl"
 CHROMA_DIR = DATA_DIR / "chroma"
-PROFILE_PATH = ROOT / "profile.yaml"
+
+# Personal files (real profile, working workbooks) live outside the repo, in
+# the directory named by USUK_PRIVATE_DIR. Without it, the tracked example
+# profile is used and workbooks go to spreadsheets/ (gitignored).
+PRIVATE_DIR = (
+    Path(os.environ["USUK_PRIVATE_DIR"]).expanduser().resolve()
+    if os.environ.get("USUK_PRIVATE_DIR")
+    else None
+)
+EXAMPLE_PROFILE_PATH = ROOT / "profile.example.yaml"
+if PRIVATE_DIR and (PRIVATE_DIR / "profile.yaml").exists():
+    PROFILE_PATH = PRIVATE_DIR / "profile.yaml"
+else:
+    PROFILE_PATH = EXAMPLE_PROFILE_PATH
 
 MODEL = os.environ.get("USUK_MODEL", "claude-opus-4-8")
 

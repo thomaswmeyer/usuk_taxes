@@ -25,7 +25,7 @@ Goal: use this tool to check the US federal TY 2025 filing plan before the
 - [ ] Confirm Form 4868 was filed by 15 June 2026. The 15 October deadline
       only exists if it was; otherwise the return is already late. Any US
       balance has accrued interest since 15 April 2026 either way.
-- [ ] Answer the open questions in `profile.yaml`: spouse's US status
+- [ ] Answer the open questions in the private `profile.yaml`: spouse's US status
       (MFJ vs MFS), ISO vs NQSO grants (AMT exposure), rental ownership
       split, FEIE vs FTC strategy. The first two change the shape of the
       whole return; every `ask` answer is only as good as these facts.
