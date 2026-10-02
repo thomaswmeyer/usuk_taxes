@@ -30,11 +30,23 @@ sources:
     url: https://www.irs.gov/pub/irs-pdf/p54.pdf
     type: pdf
 
+  - id: irs-yearly-average-fx
+    jurisdiction: us
+    title: "IRS Yearly Average Currency Exchange Rates"
+    url: https://www.irs.gov/individuals/international-taxpayers/yearly-average-currency-exchange-rates
+    type: html
+
   - id: irs-pub-514
     jurisdiction: us
     title: "IRS Publication 514 — Foreign Tax Credit for Individuals"
     url: https://www.irs.gov/pub/irs-pdf/p514.pdf
     type: pdf
+
+  - id: treas-reg-1-861-4
+    jurisdiction: us
+    title: "Treas. Reg. §1.861-4 — Compensation for labor or personal services (time-basis sourcing of equity compensation)"
+    url: "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-26?part=1&section=1.861-4"
+    type: html
 
   - id: irs-i1116
     jurisdiction: us
@@ -166,7 +178,7 @@ sources:
   - id: hmrc-sa109-notes-2026
     jurisdiction: uk
     title: "SA109 Notes (2025-26) — Residence and FIG regime pages"
-    url: https://assets.publishing.service.gov.uk/media/69c2ab7d55cc7fccb3e0dbe3/SA109-Notes-2026.pdf
+    url: https://assets.publishing.service.gov.uk/media/6ab6778c8cb3c0580e5011fb/sa109_notes_2026.pdf
     type: pdf
 
   # ── UK: employment income & employment-related securities (options) ─────
@@ -216,6 +228,24 @@ sources:
     jurisdiction: uk
     title: "ERSM162000 — IME: securities and options, residence from 6 April 2015"
     url: https://www.gov.uk/hmrc-internal-manuals/employment-related-securities/ersm162000
+    type: html
+
+  - id: hmrc-ersm170750
+    jurisdiction: uk
+    title: "ERSM170750 — NICs elections & agreements (transfer of employer NICs on securities income)"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-related-securities/ersm170750
+    type: html
+
+  - id: hmrc-ersm170760
+    jurisdiction: uk
+    title: "ERSM170760 — NICs elections: guidance"
+    url: https://www.gov.uk/hmrc-internal-manuals/employment-related-securities/ersm170760
+    type: html
+
+  - id: hmrc-transfer-employer-nic
+    jurisdiction: uk
+    title: "Transfer employer's National Insurance to employees"
+    url: https://www.gov.uk/guidance/transfer-employers-national-insurance-to-employees
     type: html
 
   # ── UK: capital gains on shares (post-exercise sales) ───────────────────

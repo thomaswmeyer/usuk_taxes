@@ -93,6 +93,25 @@ def cmd_workbook(args) -> int:
     return 0
 
 
+def cmd_estimate(args) -> int:
+    from pathlib import Path
+
+    from .config import PRIVATE_DIR
+    from .estimate import run
+
+    base = PRIVATE_DIR or Path.cwd()
+    inputs = Path(args.inputs) if args.inputs else base / f"inputs_{args.year}.yaml"
+    if not inputs.exists():
+        print(f"{inputs} not found — set USUK_PRIVATE_DIR or pass --inputs.", file=sys.stderr)
+        return 1
+    _, report = run(inputs)
+    out = inputs.with_name(f"estimate_{args.year}.md")
+    out.write_text(report)
+    print(report)
+    print(f"Wrote {out}")
+    return 0
+
+
 def cmd_ask(args) -> int:
     from .advisor import ask
 
@@ -130,6 +149,11 @@ def main() -> None:
     p.add_argument("-k", type=int, default=12, help="number of passages to retrieve (default 12)")
     p.add_argument("--show-passages", action="store_true", help="print retrieved passages first")
     p.set_defaults(func=cmd_ask)
+
+    p = sub.add_parser("estimate", help="US federal estimate from the private inputs YAML")
+    p.add_argument("--year", type=int, default=2025)
+    p.add_argument("--inputs", help="inputs file (default: $USUK_PRIVATE_DIR/inputs_<year>.yaml)")
+    p.set_defaults(func=cmd_estimate)
 
     args = parser.parse_args()
     sys.exit(args.func(args))

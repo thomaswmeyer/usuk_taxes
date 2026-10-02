@@ -5,8 +5,9 @@ citations feature enabled, so every claim in the answer is tied to a quoted
 passage from an authoritative source.
 """
 
-import yaml
+import os
 
+import yaml
 from anthropic import Anthropic
 
 from .config import FINAL_K, MODEL, PROFILE_PATH
@@ -62,7 +63,11 @@ def ask(question: str, k: int = FINAL_K, show_passages: bool = False) -> None:
         )
     content.append({"type": "text", "text": question})
 
-    client = Anthropic()
+    # Keys not scoped to a workspace must name one via this header.
+    workspace = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+    client = Anthropic(
+        default_headers={"anthropic-workspace-id": workspace} if workspace else None
+    )
     with client.messages.stream(
         model=MODEL,
         max_tokens=16000,

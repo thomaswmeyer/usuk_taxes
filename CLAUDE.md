@@ -26,7 +26,13 @@ core library (`src/usuk_taxes/`) free of machine-specific assumptions.
 
 - `uv sync` — install
 - `uv run usuk fetch` / `index` / `ask "..."` / `sources` / `workbook`
-- Requires `ANTHROPIC_API_KEY` for `ask` only; fetch/index are fully local.
+- `uv run usuk estimate` — US federal estimate from `$USUK_PRIVATE_DIR/inputs_2025.yaml`
+  (`src/usuk_taxes/estimate.py`; writes `estimate_2025.md` next to the inputs).
+  This, not the workbook, is the primary calculation; year constants live in
+  `CONSTANTS` with their corpus source.
+- `uv run --with pytest pytest tests/` — estimate tests (synthetic data only)
+- Requires `ANTHROPIC_API_KEY` for `ask` only (plus `ANTHROPIC_WORKSPACE_ID`
+  if the key is not workspace-scoped); fetch/index are fully local.
 
 ## Conventions
 

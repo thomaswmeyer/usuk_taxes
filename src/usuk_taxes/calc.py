@@ -220,8 +220,8 @@ def build_workbook(path) -> None:
     r = _formula(ws, r, "Taxable income", f"=MAX(0,B{tot}-B{pa})", GBP, bold=True)
     tax_base = r - 1
     r = _formula(ws, r, "Tax at 20% / 40% / 45%",
-                 f"=0.2*MIN(B{tax_base},B3)+0.4*MAX(0,MIN(B{tax_base},B4-B2)-B3)+0.45*MAX(0,B{tax_base}-(B4-B2))",
-                 GBP, "approximation — bands shift with pension/gift-aid contributions")
+                 f"=0.2*MIN(B{tax_base},B3)+0.4*MAX(0,MIN(B{tax_base},B4)-B3)+0.45*MAX(0,B{tax_base}-B4)",
+                 GBP, "bands apply to taxable income; approximation — bands shift with pension/gift-aid contributions")
     gross_tax = r - 1
     r = _formula(ws, r, "Less: finance-cost credit (rental)", "='Rental'!B12", GBP)
     r = _formula(ws, r, "Estimated UK liability", f"=MAX(0,B{gross_tax}-B{gross_tax+1})", GBP, bold=True)
