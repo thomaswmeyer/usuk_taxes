@@ -125,6 +125,12 @@ sources:
     url: https://www.irs.gov/pub/irs-pdf/f8833.pdf
     type: pdf
 
+  - id: treas-reg-301-6114-1
+    jurisdiction: us
+    title: "Treas. Reg. §301.6114-1 — Treaty-based return positions (Form 8833 reporting and waivers)"
+    url: "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-26?part=301&section=301.6114-1"
+    type: html
+
   # ── UK: residence, foreign income, credit relief ─────────────────────────
   - id: hmrc-tax-foreign-income
     jurisdiction: uk

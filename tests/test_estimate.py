@@ -70,3 +70,13 @@ def test_ctc_phases_out_above_threshold():
     e = compute(_inputs(dependents={"ctc_children": 1, "other_dependents": 2}))
     # MAGI 200,000 is under the 400,000 MFJ threshold: full 2,200 + 2 x 500.
     assert e.values["ctc"] == pytest.approx(3200)
+
+
+def test_us_source_loss_cannot_push_categories_above_taxable_income():
+    # A $3,000 US-source capital loss plus untaxed foreign pension growth:
+    # credits must still fully cover US tax when UK tax is high.
+    e = compute(_inputs(other_income_usd={"schwab_interest": 0, "short_term_capital_gain": -7000,
+                                          "uk_bank_interest": 0, "foreign_pension_growth": 6000}))
+    v = e.values
+    assert v["ftc_inc:general"] + v["ftc_inc:treaty_resourced"] <= v["ti"] + 0.01
+    assert v["total"] == pytest.approx(0, abs=0.01)

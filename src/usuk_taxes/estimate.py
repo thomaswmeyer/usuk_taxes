@@ -189,21 +189,29 @@ def compute(inputs: dict) -> Estimate:
     # ── Form 1116 ──
     e.section("Form 1116 (paid basis)")
     treaty_inc = wages_us + rsu_us
-    general_inc = wages_total + rsu_total - treaty_inc
+    # Foreign pension growth is UK-source compensation: general category.
+    general_inc = wages_total + rsu_total - treaty_inc + pension_growth
     total_gross = wages_total + rsu_total + rent + interest + max(0.0, cap) + pension_growth
+    cat_ti = {}
+    for key, inc in (("general", general_inc), ("treaty_resourced", treaty_inc)):
+        cat_ti[key] = inc - std * (inc / total_gross if total_gross else 0)
+    # A net US-source loss reduces foreign-source income (s.904(g)): scale the
+    # categories down pro rata so together they never exceed taxable income.
+    if sum(cat_ti.values()) > ti > 0:
+        scale = ti / sum(cat_ti.values())
+        cat_ti = {k: v * scale for k, v in cat_ti.items()}
     uk_emp_tax = uk_tax_own + rsu_tax
     treaty_tax = uk_emp_tax * (treaty_inc / own_emp_total) if own_emp_total else 0.0
     general_tax = uk_emp_tax - treaty_tax + uk_tax_spouse
     carry = inputs.get("ftc_carryovers_usd", {})
     ftc_total = 0.0
-    for key, label, inc, paid in (("general", "General", general_inc, general_tax),
-                                  ("treaty_resourced", "Treaty re-sourced (UK)", treaty_inc, treaty_tax)):
-        cat_ti = inc - std * (inc / total_gross if total_gross else 0)
-        limit = tax * min(1.0, cat_ti / ti) if ti else 0.0
+    for key, label, paid in (("general", "General", general_tax),
+                             ("treaty_resourced", "Treaty re-sourced (UK)", treaty_tax)):
+        limit = tax * min(1.0, cat_ti[key] / ti) if ti else 0.0
         co = float(carry.get(key) or 0)
         allowed_c = min(limit, paid + co)
         ftc_total += allowed_c
-        e.add(f"ftc_inc:{key}", f"{label}: income less apportioned std deduction", cat_ti)
+        e.add(f"ftc_inc:{key}", f"{label}: income less apportioned std deduction", cat_ti[key])
         e.add(f"ftc_limit:{key}", f"{label}: limitation", limit)
         e.add(f"ftc_paid:{key}", f"{label}: UK tax paid in {year}", paid)
         e.add(f"ftc_allowed:{key}", f"{label}: credit allowed", allowed_c, f"carryover in ${co:,.0f}")
