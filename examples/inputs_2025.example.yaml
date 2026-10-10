@@ -1,0 +1,76 @@
+# Example inputs for `usuk estimate` — ENTIRELY FICTIONAL figures.
+#
+# Copy to $USUK_PRIVATE_DIR/inputs_2025.yaml and replace with your own.
+# Money is GBP unless the key ends in _usd. `null` = not yet known: the
+# estimate treats it as 0 and lists it under "Missing inputs".
+# Record where every figure came from — you will want it when entering the
+# numbers into tax software.
+#
+# Household: US citizens resident in England, married filing jointly. One
+# spouse works for the UK subsidiary of a US company and receives RSUs; the
+# other has UK wages; they jointly own a UK rental flat.
+
+tax_year: 2025
+fx_gbp_per_usd: 0.759           # IRS yearly average 2025 (corpus: irs-yearly-average-fx)
+
+# England & Wales bank holidays 2025 (gov.uk/bank-holidays)
+bank_holidays: [2025-01-01, 2025-04-18, 2025-04-21, 2025-05-05, 2025-05-26,
+                2025-08-25, 2025-12-25, 2025-12-26]
+
+workdays:
+  us_dates: [2025-05-12, 2025-05-13, 2025-05-14]   # business trip to the US
+  leave_dates: [2025-08-11, 2025-08-12, 2025-08-13, 2025-08-14, 2025-08-15]
+  leave_dates_confirmed: true
+
+wages:
+  - employer: Example Tech UK Ltd
+    period: [2025-01-01, 2025-12-31]   # employment dates within the year (for workday sourcing)
+    gross: 150000.00            # salary + bonus before pension deductions, from payslips paid in calendar 2025
+    employer_pension: 7500.00   # employer pension contributions
+    uk_tax: 52000.00            # PAYE on those payslips (excluding RSU payslips)
+    source: payslips Jan-Dec 2025
+  - employer: Spouse — Example School
+    period: [2025-01-01, 2025-12-31]
+    gross: 30000.00
+    employer_pension: 6000.00
+    uk_tax: 3500.00
+    spouse: true                # all UK workdays; no US sourcing
+    source: spouse payslips Jan-Dec 2025
+
+rsu_vests:                      # US income = shares x vest-date FMV (the broker's 1099-B basis)
+  - vest: 2025-03-15
+    shares: 500
+    fmv_usd: 60.00
+    uk_tax_paid_in_year: 13800.00   # PAYE on the RSU payslip, if paid in calendar 2025
+    source: broker release confirmation; payslip Apr 2025
+  - vest: 2025-09-15
+    shares: 500
+    fmv_usd: 70.00
+    uk_tax_paid_in_year: 16100.00
+    source: broker release confirmation; payslip Oct 2025
+rsu_period_start: 2024-09-15    # grant date (grant-to-vest period for workday sourcing)
+
+rental:                         # UK rental: 100% on Schedule E for a joint return; calendar 2025
+  rent: 18000.00
+  management_fees: 2160.00
+  repairs: 400.00
+  other_expenses: 150.00        # e.g. gas safety certificate
+  insurance: 300.00
+  mortgage_interest: 7200.00
+  depreciation_basis_usd: 300000   # building + improvements, excluding land; foreign residential = ADS 30-year
+  prior_suspended_loss_usd: 2500   # last year's Form 8582 carryforward
+  source: letting agent statements; mortgage statement
+
+other_income_usd:
+  schwab_interest: 12.00        # US broker 1099-INT
+  short_term_capital_gain: -350.00   # sell-to-cover sales; 1099-B basis already = vest FMV
+  uk_bank_interest: 0
+  foreign_pension_growth: 1500  # only if you report UK pension growth (s.402(b)) as prior returns did
+
+dependents:
+  ctc_children: 1               # under 17 at year end, with SSN
+  other_dependents: 0
+
+ftc_carryovers_usd:             # last year's Form 1116 Schedule B, line 8, per category
+  general: 25000
+  treaty_resourced: 0

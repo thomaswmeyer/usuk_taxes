@@ -2,6 +2,7 @@
 name = "usuk-taxes"
 version = "0.1.0"
 description = "RAG-based US/UK tax advisor for US expatriates living in the UK"
+license = "MIT"
 requires-python = ">=3.11"
 dependencies = [
     "anthropic>=0.40",

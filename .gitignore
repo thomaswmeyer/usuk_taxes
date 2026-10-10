@@ -22,3 +22,6 @@ spreadsheets/*.xlsx
 
 # Claude Code local settings
 .claude/settings.local.json*
+
+# Output of `usuk estimate --inputs examples/...`
+examples/estimate_*.md
