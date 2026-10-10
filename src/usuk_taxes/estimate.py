@@ -18,6 +18,8 @@ from pathlib import Path
 
 import yaml
 
+NOTE = "Research tool only, not tax advice. Verify against the cited sources or a qualified professional before relying on it."
+
 # Year constants, each verified against the corpus source named alongside.
 CONSTANTS = {
     2025: {
@@ -243,6 +245,7 @@ def render(e: Estimate, inputs_path: Path) -> str:
             out.append(f"| {line.label} | {line.amount:,.0f} | {line.note} |")
     if e.gaps:
         out += ["", "## Missing inputs (treated as 0)", ""] + [f"- {g}" for g in e.gaps]
+    out += ["", f"_{NOTE}_"]
     return "\n".join(out) + "\n"
 
 

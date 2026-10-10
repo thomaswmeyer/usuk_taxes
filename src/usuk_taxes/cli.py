@@ -113,14 +113,14 @@ def cmd_estimate(args) -> int:
 
 
 def cmd_ask(args) -> int:
-    from .advisor import ask
+    from .research import ask
 
     ask(args.question, k=args.k, show_passages=args.show_passages)
     return 0
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="usuk", description="US/UK expat tax research assistant")
+    parser = argparse.ArgumentParser(prog="usuk", description="US/UK expat tax research tool (not tax advice)")
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("sources", help="list corpus sources and status").set_defaults(func=cmd_sources)

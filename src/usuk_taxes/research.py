@@ -13,8 +13,10 @@ from anthropic import Anthropic
 from .config import FINAL_K, MODEL, PROFILE_PATH
 from .index import search
 
+NOTE = "Research tool only, not tax advice. Verify against the cited sources or a qualified professional before relying on it."
+
 SYSTEM_PROMPT = """\
-You are a careful US/UK cross-border tax research assistant helping a US
+You are a careful US/UK cross-border tax research tool helping a US
 citizen resident in the UK prepare their own US federal return (tax year 2025)
 and UK Self Assessment (tax year 2025-26).
 
@@ -31,6 +33,8 @@ Rules:
   say when the US-UK treaty modifies the default rule.
 - Where figures depend on facts not in the profile, state the assumption you
   are making.
+- You provide research, not tax advice. Never present an answer as advice or
+  as a recommendation the reader can rely on without checking the sources.
 - End answers that involve judgment calls or high stakes (equity compensation
   sourcing, treaty positions, PFICs) with a short note on what to verify or
   when a cross-border professional is warranted.
@@ -95,3 +99,4 @@ def ask(question: str, k: int = FINAL_K, show_passages: bool = False) -> None:
             if len(quote) > 200:
                 quote = quote[:200] + "…"
             print(f"  [{i}] {c['title']}\n      “{quote}”")
+    print(f"\n{NOTE}")

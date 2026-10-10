@@ -1,6 +1,6 @@
 # usuk_taxes
 
-RAG-based US/UK tax research assistant for a US citizen living in the UK,
+RAG-based US/UK tax research tool for a US citizen living in the UK,
 built to help prepare the US federal return (TY 2025) and UK Self Assessment
 (2025-26). Personal tool today; may be hosted for others later, so keep the
 core library (`src/usuk_taxes/`) free of machine-specific assumptions.
@@ -13,7 +13,7 @@ core library (`src/usuk_taxes/`) free of machine-specific assumptions.
   extraction (cached in `corpus/text/`).
 - `src/usuk_taxes/chunking.py` → `index.py` — paragraph chunks; hybrid
   retrieval = Chroma (local ONNX embeddings, no API key) + BM25, fused with RRF.
-- `src/usuk_taxes/advisor.py` — Claude call. Retrieved chunks are sent as
+- `src/usuk_taxes/research.py` — Claude call for `usuk ask`. Retrieved chunks are sent as
   document blocks with the API citations feature enabled; answers must cite.
 - `$USUK_PRIVATE_DIR/profile.yaml` — the household tax situation, injected
   into the system prompt. Update it when facts change; it also lists open

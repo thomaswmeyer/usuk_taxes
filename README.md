@@ -1,21 +1,36 @@
 # usuk-taxes
 
-Tools for a US citizen living in the UK who prepares their own US federal
-return (and UK Self Assessment) and wants answers they can check.
+A research tool for US citizens living in the UK who prepare their own US
+federal return (and UK Self Assessment) and want answers they can check.
 
-- **`usuk ask`** — a research assistant over a local corpus of authoritative
+- **`usuk ask`** — cited research over a local corpus of authoritative
   sources: IRS publications and form instructions, key Treasury regulations,
   HMRC manuals and guidance, and the US-UK income tax treaty with its
   Technical Explanation. Answers come from Claude using the API's citations
-  feature, so every claim is tied to a quoted passage, and the assistant says
-  when the sources don't cover something.
+  feature, so every claim is tied to a quoted passage, and it says when the
+  sources don't cover something.
 - **`usuk estimate`** — an independent US federal estimate (Form 1040,
   married filing jointly) from a YAML inputs file, to check what your tax
   software produces.
 
-> **Not tax advice.** This is a research and calculation aid. Verify anything
-> high-stakes against the sources it cites or with a cross-border tax
-> professional.
+## Disclaimer
+
+**This is a research tool, not tax, legal or financial advice.** It is not a
+tax advisor and does not replace one.
+
+- Its answers and estimates can be wrong, incomplete or out of date — tax law,
+  forms and rates change, and the sources it retrieves may not cover your
+  situation.
+- You are solely responsible for your own tax returns and for checking
+  anything you rely on against the cited sources or with a qualified
+  cross-border tax professional.
+- It is provided "as is", without warranty of any kind, under the MIT
+  license; the authors accept no liability for any tax, penalty, interest or
+  other loss arising from its use.
+- It is not affiliated with or endorsed by the IRS, HMRC, the US Treasury,
+  Intuit/TurboTax or Anthropic.
+
+Every `ask` answer and `estimate` report ends with a one-line reminder of this.
 
 ## How it was used
 

@@ -1,6 +1,6 @@
 # Example household tax profile. Copy to $USUK_PRIVATE_DIR/profile.yaml and
 # fill in real facts; that copy (never this file) is injected into the
-# advisor's system prompt. Keep real personal details out of the repo.
+# research tool's system prompt. Keep real personal details out of the repo.
 
 filer:
   status: US citizen, tax resident in the UK

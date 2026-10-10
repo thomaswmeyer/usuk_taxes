@@ -1,7 +1,7 @@
 [project]
 name = "usuk-taxes"
 version = "0.1.0"
-description = "RAG-based US/UK tax advisor for US expatriates living in the UK"
+description = "Research tool for US citizens living in the UK — cited answers from IRS, HMRC and US-UK treaty sources, plus a US return estimate to check your own tax software against"
 license = "MIT"
 requires-python = ">=3.11"
 dependencies = [
